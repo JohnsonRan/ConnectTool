@@ -113,6 +113,9 @@ int main() {
         // Run Steam callbacks
         SteamAPI_RunCallbacks();
 
+        // Update Steam networking info
+        steamManager.update();
+
         // Start ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();

@@ -101,6 +101,9 @@ void SteamMessageHandler::pollMessages() {
                     }
                 }
                 // Send to corresponding TCP client if exists (for host)
+                if (clientMap_.count(conn)) {
+                    clientMap_[conn]->send((const char*)pIncomingMsg->m_pData, pIncomingMsg->m_cbSize);
+                }
             }
             pIncomingMsg->Release();
         }

@@ -81,15 +81,8 @@ public:
     HSteamNetConnection getConnection() const { return g_hConnection; }
     ISteamNetworkingSockets* getInterface() const { return m_pInterface; }
 
-    void setMessageHandlerDependencies(boost::asio::io_context& io_context, std::map<HSteamNetConnection, std::shared_ptr<TCPClient>>& clientMap, std::mutex& clientMutex, std::unique_ptr<TCPServer>& server, int& localPort);
-
-    // Message handler
-    void startMessageHandler();
-    void stopMessageHandler();
-
-    // For callbacks
-    void setHostSteamID(CSteamID id) { g_hostSteamID = id; }
-    CSteamID getHostSteamID() const { return g_hostSteamID; }
+    // Update user info (ping, relay status)
+    void update();
 
     friend class SteamFriendsCallbacks;
     friend class SteamMatchmakingCallbacks;
