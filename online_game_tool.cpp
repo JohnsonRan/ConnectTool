@@ -188,8 +188,6 @@ int main()
         {
             ImGui::Text("已连接到游戏房间。邀请朋友!");
             ImGui::Separator();
-            renderInviteFriends();
-            ImGui::Separator();
             if (ImGui::Button("断开连接"))
             {
                 roomManager.leaveLobby();
@@ -200,6 +198,8 @@ int main()
                     server.reset();
                 }
             }
+            ImGui::Separator();
+            renderInviteFriends();
         }
 
         ImGui::End();
